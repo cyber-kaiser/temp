@@ -1,0 +1,130 @@
+---
+title : Compte Rendu TP1 
+author : Ergi DIBRA
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output : 
+        pdf_document:
+                toc : true
+                number_sections : true
+                highlight : pygments
+linkcolor : blue
+---
+
+# Configuration du système
+
+## Mise a jour du système
+
+### Question 1
+
+```{bash, eval=FALSE}
+sudo apt update
+```
+C'est une commande qui permets une mise à jour de la liste des packages et donc télécharger les informations des packages à partir de toutes les sources configurées.
+
+```{bash, eval=FALSE}
+sudo apt upgrade
+```
+C'est une commande qui installe les upgrade disponibles de tous les packages actuellement installés sur le système à partir des sources configurées via le fichier sources.list. De nouveaux packages seront installés si nécessaire pour satisfaire les dépendances, mais les packages existants ne seront jamais supprimés.
+
+### Question 2
+
+`apt-get` et `aptitude` $\rightarrow$ ce sont les deux des interfaces de gestion des packages de ligne de commande. La différence la plus évidente est qu'aptitude fournit une interface de menu de terminal (un peu comme Synaptic dans un terminal), contrairement à apt-get.\
+`apt` $\rightarrow$ `apt` contient certaines des fonctionnalités les plus utilisées d'`apt-get` et d'`apt-cache`, laissant de côté les fonctionnalités obscures et rarement utilisées. Il peut également gérer le fichier `apt.conf`.\
+`dpkg` $\rightarrow$ `apt-get` utilise `dpkg` pour effectuer les installations réelles des paquets. Donc, dans un sens, ils "installent" au même endroit.\
+`snap` $\rightarrow$ Système de paquetage différent. Les debs sont généralement gelés lorsqu'une version d'Ubuntu est lancée, et ce deb ne verra généralement pas de mise à jour au cours de la version d'Ubuntu. Selon le référentiel, il peut voir des mises à jour de sécurité et peut-être des corrections de bug, mais c'est l'exception. Cependant, les snaps sont en dehors de la distribution et peuvent être mis à jour à tout moment, ce qui signifie que le snap pourrait très bien être beaucoup plus récent que le deb. `snap` voit d'utilité quand un paquet n'existe pas dans les dépôts de distribution, donc l'installation via `apt install` n'est pas une option.\
+
+## Analyse du système
+
+### Question 1
+
+Un paquet est une archive comprenant les fichiers informatiques, les informations et procédures nécessaires à l’installation d’un logiciel sur un système d’exploitation, en s’assurant de la cohérence fonctionnelle du système ainsi modifié.
+
+### Question 2
+
+```{bash, eval=FALSE}
+dpkg -l | grep nom_du_paquet
+```
+### Question 3
+```{bash, eval=FALSE}
+apt-cache show nom_du_paquet
+```
+
+### Question 4
+On fait cela en 2 etapes:
+
+1. `sudo apt update && sudo apt upgrade`
+2. `sudo apt install nom_du_paquet`
+
+### Question 5
+Pour cette question j'ai pris comme exemple les paquets installé dans ma machine personnelle. (pas d'access à la machine de l'université)
+
+```{bash}
+apt list open-vm-tools
+apt list openssh-server
+```
+### Question 6
+Pour cette question j'ai pris en exemple ma machine personnelle. (pas d'access à la machine de l'université)
+```{bash}
+df -h
+```
+## Analyse du système
+
+### Question 1
+
+```{bash}
+cat /etc/os-release | grep "PRETTY_NAME"
+cat /etc/passwd | grep $(whoami)
+```
+### Question 2
+
+Pas de grande différence observé. (Pas utilisable dans ma machine personnelle car Debian sur WSL).
+
+### Question 3
+
+On retrouve la configuration qu'on a choisit lors de l'installation de la distro.
+
+### Question 4
+
+```{bash, eval=FALSE}
+sudo blkid | grep UUID=
+```
+L'UUID d'une partition est nécessaire principalement pour monter correctement les partitions dans un système informatique où des centaines de disques durs sont installés. Si on monte les disques durs ou les SSD à l'aide des UUID, il n'y a presque aucune chance du mauvais disque dur monté et entraînant de graves pertes de données. 
+
+# Gestion des utilisateurs
+
+## Analyse des fichers de configuration utilisateur
+
+### Question 1
+
+* `/etc/passwd`
+    + lisible par tout le monde, modifiable que par root
+    + contient les informations de compte utilisateur, y compris les mots de passe hachés à sens unique
+
+* `/etc/shadow`
+    + lisible/modifiable uniquement par le compte root
+    + contient les mots de passe cryptés (ceux qui sont remplacé par `x` dans `/etc/passwd` ainsi que d'autres informations telles que les valeurs d'expiration des comptes ou des mots de passe
+
+* `/etc/group`
+    + lisible par tout le monde, modifiable que par root
+    + contient les groupes auxquels appartiennent les utilisateurs sous les systèmes d'exploitation Linux et UNIX.
+
+## Création d'un nouvel utilisateur
+
+### Question 1
+
+Chaque utilisateur doit avoir un seul compte sur le système. Les services réseau peuvent également avoir leurs propres comptes séparés, afin de pouvoir accéder à ces fichiers sur le système dont ils ont besoin. Des utilités permettent aux utilisateurs autorisés d'obtenir temporairement des privilèges root si nécessaire, afin que les administrateurs puissent gérer le système avec leurs propres comptes utilisateur.
+
+### Question 2
+
+* Au moins 8 caractères (le plus le mieux)
+* Un mélange de lettres majuscules et minuscules
+*  Inclusion d'au moins un caractère spécial, par exemple,`! @ #? ]`
+
+## Environnement de l'utilisateur toto
+
+### Question 1
+
+Le répertoire `/etc/skel` contient des fichiers et des répertoires qui sont automatiquement copiés vers un nouvel utilisateur lorsqu'il est créé à partir de la commande `useradd`.
+
+### Question 2
+
