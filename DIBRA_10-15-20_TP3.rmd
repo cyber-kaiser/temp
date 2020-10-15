@@ -1,0 +1,65 @@
+---
+title : TP de TP3 
+author : Ergi DIBRA
+date : "`r format(Sys.time(), '%d %B %Y')`"
+output : 
+        pdf_document:
+                toc : true
+                number_sections : true
+                highlight : pygments
+linkcolor : blue
+---
+
+# Services
+
+## Definition
+
+### Question 1
+
+## Analyse de systemd
+
+### Question 1
+
+### Question 2
+
+## Analyse des processus actifs
+
+### Question 1
+
+### Question 2
+
+### Question 3
+
+## Service `getty@tty2.service`
+
+### Resume operations
+
+## mondemon v1
+
+### Question 1
+
+## mondemon v2
+
+### Question 1
+
+# Gestion des processus
+
+## `runlevel`
+
+## Analyse du repertoire `/proc/`
+
+### Question 1
+
+### Question 2 
+
+### Question 3
+
+## `top`
+
+### Question 1
+
+### Question 2
+
+## Signal `SIGSTOP`
+
+# Bonus
