@@ -35,6 +35,16 @@ systemctl status -a
 
 ### Question 1
 
+```{bash}
+ps -e
+```
+
+explain
+
+```{bash}
+ps -aux
+```
+
 ### Question 2
 
 ### Question 3
