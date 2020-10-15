@@ -14,11 +14,20 @@ linkcolor : blue
 
 ## Definition
 
+
 ### Question 1
+
+* daemon $\rightarrow$ un processus qui s'execute en arriere-plan sans association avec le terminal TTY. Le processus parent d'un processus demon est `init`.
+* processus $\rightarrow$ un ensemble de taches, un ensemble de lignes de code a executer par le processeur. 
+* application 
 
 ## Analyse de systemd
 
 ### Question 1
+
+```bash
+systemctl status -a
+```
 
 ### Question 2
 
