@@ -1,0 +1,659 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={TP de TP3},
+            pdfauthor={Ergi DIBRA},
+            colorlinks=true,
+            linkcolor=blue,
+            filecolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{TP de TP3}
+\author{Ergi DIBRA}
+\date{15 October 2020}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{services}{%
+\section{Services}\label{services}}
+
+\hypertarget{definition}{%
+\subsection{Definition}\label{definition}}
+
+\hypertarget{question-1}{%
+\subsubsection{Question 1}\label{question-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  daemon \(\rightarrow\) un processus qui s'execute en arriere-plan sans
+  association avec le terminal TTY. Le processus parent d'un processus
+  demon est \texttt{init}.
+\item
+  processus \(\rightarrow\) un ensemble de taches, un ensemble de lignes
+  de code a executer par le processeur.
+\item
+  application
+\end{itemize}
+
+\hypertarget{analyse-de-systemd}{%
+\subsection{Analyse de systemd}\label{analyse-de-systemd}}
+
+\hypertarget{question-1-1}{%
+\subsubsection{Question 1}\label{question-1-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{systemctl}\NormalTok{ status -a}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{question-2}{%
+\subsubsection{Question 2}\label{question-2}}
+
+\hypertarget{analyse-des-processus-actifs}{%
+\subsection{Analyse des processus
+actifs}\label{analyse-des-processus-actifs}}
+
+\hypertarget{question-1-2}{%
+\subsubsection{Question 1}\label{question-1-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ps}\NormalTok{ -e}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     PID TTY          TIME CMD
+##       1 ?        00:00:02 systemd
+##       2 ?        00:00:00 kthreadd
+##       3 ?        00:00:00 rcu_gp
+##       4 ?        00:00:00 rcu_par_gp
+##       6 ?        00:00:00 kworker/0:0H-kblockd
+##       9 ?        00:00:00 mm_percpu_wq
+##      10 ?        00:00:00 ksoftirqd/0
+##      11 ?        00:00:00 rcu_sched
+##      12 ?        00:00:00 migration/0
+##      13 ?        00:00:00 idle_inject/0
+##      14 ?        00:00:00 cpuhp/0
+##      15 ?        00:00:00 kdevtmpfs
+##      16 ?        00:00:00 netns
+##      17 ?        00:00:00 rcu_tasks_kthre
+##      18 ?        00:00:00 kauditd
+##      19 ?        00:00:00 khungtaskd
+##      20 ?        00:00:00 oom_reaper
+##      21 ?        00:00:00 writeback
+##      22 ?        00:00:00 kcompactd0
+##      23 ?        00:00:00 ksmd
+##      24 ?        00:00:00 khugepaged
+##      70 ?        00:00:00 kintegrityd
+##      71 ?        00:00:00 kblockd
+##      72 ?        00:00:00 blkcg_punt_bio
+##      73 ?        00:00:00 tpm_dev_wq
+##      74 ?        00:00:00 ata_sff
+##      75 ?        00:00:00 md
+##      76 ?        00:00:00 edac-poller
+##      77 ?        00:00:00 devfreq_wq
+##      78 ?        00:00:00 watchdogd
+##      81 ?        00:00:00 kswapd0
+##      82 ?        00:00:00 ecryptfs-kthrea
+##      84 ?        00:00:00 kthrotld
+##      85 ?        00:00:00 irq/24-pciehp
+##      86 ?        00:00:00 irq/25-pciehp
+##      87 ?        00:00:00 irq/26-pciehp
+##      88 ?        00:00:00 irq/27-pciehp
+##      89 ?        00:00:00 irq/28-pciehp
+##      90 ?        00:00:00 irq/29-pciehp
+##      91 ?        00:00:00 irq/30-pciehp
+##      92 ?        00:00:00 irq/31-pciehp
+##      93 ?        00:00:00 irq/32-pciehp
+##      94 ?        00:00:00 irq/33-pciehp
+##      95 ?        00:00:00 irq/34-pciehp
+##      96 ?        00:00:00 irq/35-pciehp
+##      97 ?        00:00:00 irq/36-pciehp
+##      98 ?        00:00:00 irq/37-pciehp
+##      99 ?        00:00:00 irq/38-pciehp
+##     100 ?        00:00:00 irq/39-pciehp
+##     101 ?        00:00:00 irq/40-pciehp
+##     102 ?        00:00:00 irq/41-pciehp
+##     103 ?        00:00:00 irq/42-pciehp
+##     104 ?        00:00:00 irq/43-pciehp
+##     105 ?        00:00:00 irq/44-pciehp
+##     106 ?        00:00:00 irq/45-pciehp
+##     107 ?        00:00:00 irq/46-pciehp
+##     108 ?        00:00:00 irq/47-pciehp
+##     109 ?        00:00:00 irq/48-pciehp
+##     110 ?        00:00:00 irq/49-pciehp
+##     111 ?        00:00:00 irq/50-pciehp
+##     112 ?        00:00:00 irq/51-pciehp
+##     113 ?        00:00:00 irq/52-pciehp
+##     114 ?        00:00:00 irq/53-pciehp
+##     115 ?        00:00:00 irq/54-pciehp
+##     116 ?        00:00:00 irq/55-pciehp
+##     117 ?        00:00:00 acpi_thermal_pm
+##     118 ?        00:00:00 scsi_eh_0
+##     119 ?        00:00:00 scsi_tmf_0
+##     120 ?        00:00:00 scsi_eh_1
+##     121 ?        00:00:00 scsi_tmf_1
+##     123 ?        00:00:00 vfio-irqfd-clea
+##     124 ?        00:00:00 ipv6_addrconf
+##     134 ?        00:00:00 kstrp
+##     137 ?        00:00:00 kworker/u3:0
+##     151 ?        00:00:00 charger_manager
+##     185 ?        00:00:00 scsi_eh_2
+##     186 ?        00:00:00 mpt_poll_0
+##     187 ?        00:00:00 mpt/0
+##     188 ?        00:00:00 scsi_tmf_2
+##     189 ?        00:00:00 scsi_eh_3
+##     190 ?        00:00:00 scsi_tmf_3
+##     191 ?        00:00:00 scsi_eh_4
+##     192 ?        00:00:00 scsi_tmf_4
+##     193 ?        00:00:00 cryptd
+##     194 ?        00:00:00 scsi_eh_5
+##     197 ?        00:00:00 scsi_tmf_5
+##     201 ?        00:00:00 scsi_eh_6
+##     205 ?        00:00:00 scsi_tmf_6
+##     208 ?        00:00:00 scsi_eh_7
+##     211 ?        00:00:00 scsi_tmf_7
+##     212 ?        00:00:00 scsi_eh_8
+##     213 ?        00:00:00 scsi_tmf_8
+##     215 ?        00:00:00 scsi_eh_9
+##     219 ?        00:00:00 scsi_tmf_9
+##     221 ?        00:00:00 scsi_eh_10
+##     223 ?        00:00:00 scsi_tmf_10
+##     226 ?        00:00:00 scsi_eh_11
+##     228 ?        00:00:00 scsi_tmf_11
+##     230 ?        00:00:00 scsi_eh_12
+##     232 ?        00:00:00 scsi_tmf_12
+##     234 ?        00:00:00 scsi_eh_13
+##     236 ?        00:00:00 scsi_tmf_13
+##     238 ?        00:00:00 irq/16-vmwgfx
+##     240 ?        00:00:00 scsi_eh_14
+##     242 ?        00:00:00 scsi_tmf_14
+##     243 ?        00:00:00 scsi_eh_15
+##     245 ?        00:00:00 ttm_swap
+##     246 ?        00:00:00 scsi_tmf_15
+##     248 ?        00:00:00 scsi_eh_16
+##     250 ?        00:00:00 scsi_tmf_16
+##     252 ?        00:00:00 scsi_eh_17
+##     254 ?        00:00:00 scsi_tmf_17
+##     255 ?        00:00:00 scsi_eh_18
+##     256 ?        00:00:00 scsi_tmf_18
+##     257 ?        00:00:00 scsi_eh_19
+##     258 ?        00:00:00 scsi_tmf_19
+##     259 ?        00:00:00 scsi_eh_20
+##     260 ?        00:00:00 scsi_tmf_20
+##     261 ?        00:00:00 scsi_eh_21
+##     262 ?        00:00:00 scsi_tmf_21
+##     263 ?        00:00:00 scsi_eh_22
+##     264 ?        00:00:00 scsi_tmf_22
+##     265 ?        00:00:00 scsi_eh_23
+##     266 ?        00:00:00 scsi_tmf_23
+##     267 ?        00:00:00 scsi_eh_24
+##     268 ?        00:00:00 scsi_tmf_24
+##     269 ?        00:00:00 scsi_eh_25
+##     270 ?        00:00:00 scsi_tmf_25
+##     271 ?        00:00:00 scsi_eh_26
+##     272 ?        00:00:00 scsi_tmf_26
+##     273 ?        00:00:00 scsi_eh_27
+##     274 ?        00:00:00 scsi_tmf_27
+##     275 ?        00:00:00 scsi_eh_28
+##     276 ?        00:00:00 scsi_tmf_28
+##     277 ?        00:00:00 scsi_eh_29
+##     278 ?        00:00:00 scsi_tmf_29
+##     279 ?        00:00:00 scsi_eh_30
+##     280 ?        00:00:00 scsi_tmf_30
+##     281 ?        00:00:00 scsi_eh_31
+##     282 ?        00:00:00 scsi_tmf_31
+##     310 ?        00:00:00 scsi_eh_32
+##     311 ?        00:00:00 scsi_tmf_32
+##     312 ?        00:00:00 kworker/0:1H-kblockd
+##     349 ?        00:00:00 raid5wq
+##     389 ?        00:00:00 jbd2/sda3-8
+##     390 ?        00:00:00 ext4-rsv-conver
+##     446 ?        00:00:01 systemd-journal
+##     478 ?        00:00:00 systemd-udevd
+##     480 ?        00:00:00 systemd-network
+##     621 ?        00:00:00 kaluad
+##     622 ?        00:00:00 kmpath_rdacd
+##     623 ?        00:00:00 kmpathd
+##     624 ?        00:00:00 kmpath_handlerd
+##     625 ?        00:00:01 multipathd
+##     636 ?        00:00:00 jbd2/sda2-8
+##     638 ?        00:00:00 ext4-rsv-conver
+##     640 ?        00:00:00 loop0
+##     641 ?        00:00:00 jbd2/sda4-8
+##     643 ?        00:00:00 ext4-rsv-conver
+##     645 ?        00:00:00 loop1
+##     647 ?        00:00:00 loop3
+##     648 ?        00:00:00 loop4
+##     665 ?        00:00:00 systemd-resolve
+##     666 ?        00:00:00 systemd-timesyn
+##     678 ?        00:00:00 VGAuthService
+##     684 ?        00:00:04 vmtoolsd
+##     709 ?        00:00:00 accounts-daemon
+##     710 ?        00:00:00 dbus-daemon
+##     718 ?        00:00:00 networkd-dispat
+##     719 ?        00:00:00 rsyslogd
+##     723 ?        00:00:00 systemd-logind
+##     755 ?        00:00:00 cron
+##     768 ?        00:00:00 atd
+##     787 ?        00:00:00 sshd
+##     788 tty1     00:00:00 login
+##     796 ?        00:00:00 unattended-upgr
+##     809 ?        00:00:00 polkitd
+##     992 ?        00:00:00 loop6
+##    1026 ?        00:00:03 snapd
+##    1231 ?        00:00:00 loop5
+##    1728 ?        00:00:00 systemd
+##    1729 ?        00:00:00 (sd-pam)
+##    1734 tty1     00:00:00 bash
+##    7073 ?        00:00:00 kworker/u2:0-events_power_efficient
+##    8227 ?        00:00:00 kworker/u2:1-events_power_efficient
+##    8258 ?        00:00:00 kworker/0:2-events
+##    8830 ?        00:00:00 kworker/0:1-events
+##    8933 ?        00:00:00 fwupd
+##    8959 ?        00:00:00 gpg-agent
+##    9017 tty1     00:00:00 vim
+##    9403 tty1     00:00:00 bash
+##    9405 tty1     00:00:00 R
+##    9421 tty1     00:00:00 sh
+##    9422 tty1     00:00:00 ps
+\end{verbatim}
+
+explain
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ps}\NormalTok{ -aux}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+## root           1  0.0  1.2 105108 12704 ?        Ss   11:28   0:02 /sbin/init maybe-ubiquity
+## root           2  0.0  0.0      0     0 ?        S    11:28   0:00 [kthreadd]
+## root           3  0.0  0.0      0     0 ?        I<   11:28   0:00 [rcu_gp]
+## root           4  0.0  0.0      0     0 ?        I<   11:28   0:00 [rcu_par_gp]
+## root           6  0.0  0.0      0     0 ?        I<   11:28   0:00 [kworker/0:0H-kblockd]
+## root           9  0.0  0.0      0     0 ?        I<   11:28   0:00 [mm_percpu_wq]
+## root          10  0.0  0.0      0     0 ?        S    11:28   0:00 [ksoftirqd/0]
+## root          11  0.0  0.0      0     0 ?        I    11:28   0:00 [rcu_sched]
+## root          12  0.0  0.0      0     0 ?        S    11:28   0:00 [migration/0]
+## root          13  0.0  0.0      0     0 ?        S    11:28   0:00 [idle_inject/0]
+## root          14  0.0  0.0      0     0 ?        S    11:28   0:00 [cpuhp/0]
+## root          15  0.0  0.0      0     0 ?        S    11:28   0:00 [kdevtmpfs]
+## root          16  0.0  0.0      0     0 ?        I<   11:28   0:00 [netns]
+## root          17  0.0  0.0      0     0 ?        S    11:28   0:00 [rcu_tasks_kthre]
+## root          18  0.0  0.0      0     0 ?        S    11:28   0:00 [kauditd]
+## root          19  0.0  0.0      0     0 ?        S    11:28   0:00 [khungtaskd]
+## root          20  0.0  0.0      0     0 ?        S    11:28   0:00 [oom_reaper]
+## root          21  0.0  0.0      0     0 ?        I<   11:28   0:00 [writeback]
+## root          22  0.0  0.0      0     0 ?        S    11:28   0:00 [kcompactd0]
+## root          23  0.0  0.0      0     0 ?        SN   11:28   0:00 [ksmd]
+## root          24  0.0  0.0      0     0 ?        SN   11:28   0:00 [khugepaged]
+## root          70  0.0  0.0      0     0 ?        I<   11:28   0:00 [kintegrityd]
+## root          71  0.0  0.0      0     0 ?        I<   11:28   0:00 [kblockd]
+## root          72  0.0  0.0      0     0 ?        I<   11:28   0:00 [blkcg_punt_bio]
+## root          73  0.0  0.0      0     0 ?        I<   11:28   0:00 [tpm_dev_wq]
+## root          74  0.0  0.0      0     0 ?        I<   11:28   0:00 [ata_sff]
+## root          75  0.0  0.0      0     0 ?        I<   11:28   0:00 [md]
+## root          76  0.0  0.0      0     0 ?        I<   11:28   0:00 [edac-poller]
+## root          77  0.0  0.0      0     0 ?        I<   11:28   0:00 [devfreq_wq]
+## root          78  0.0  0.0      0     0 ?        S    11:28   0:00 [watchdogd]
+## root          81  0.0  0.0      0     0 ?        S    11:28   0:00 [kswapd0]
+## root          82  0.0  0.0      0     0 ?        S    11:28   0:00 [ecryptfs-kthrea]
+## root          84  0.0  0.0      0     0 ?        I<   11:28   0:00 [kthrotld]
+## root          85  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/24-pciehp]
+## root          86  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/25-pciehp]
+## root          87  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/26-pciehp]
+## root          88  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/27-pciehp]
+## root          89  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/28-pciehp]
+## root          90  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/29-pciehp]
+## root          91  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/30-pciehp]
+## root          92  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/31-pciehp]
+## root          93  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/32-pciehp]
+## root          94  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/33-pciehp]
+## root          95  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/34-pciehp]
+## root          96  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/35-pciehp]
+## root          97  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/36-pciehp]
+## root          98  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/37-pciehp]
+## root          99  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/38-pciehp]
+## root         100  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/39-pciehp]
+## root         101  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/40-pciehp]
+## root         102  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/41-pciehp]
+## root         103  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/42-pciehp]
+## root         104  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/43-pciehp]
+## root         105  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/44-pciehp]
+## root         106  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/45-pciehp]
+## root         107  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/46-pciehp]
+## root         108  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/47-pciehp]
+## root         109  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/48-pciehp]
+## root         110  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/49-pciehp]
+## root         111  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/50-pciehp]
+## root         112  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/51-pciehp]
+## root         113  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/52-pciehp]
+## root         114  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/53-pciehp]
+## root         115  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/54-pciehp]
+## root         116  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/55-pciehp]
+## root         117  0.0  0.0      0     0 ?        I<   11:28   0:00 [acpi_thermal_pm]
+## root         118  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_0]
+## root         119  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_0]
+## root         120  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_1]
+## root         121  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_1]
+## root         123  0.0  0.0      0     0 ?        I<   11:28   0:00 [vfio-irqfd-clea]
+## root         124  0.0  0.0      0     0 ?        I<   11:28   0:00 [ipv6_addrconf]
+## root         134  0.0  0.0      0     0 ?        I<   11:28   0:00 [kstrp]
+## root         137  0.0  0.0      0     0 ?        I<   11:28   0:00 [kworker/u3:0]
+## root         151  0.0  0.0      0     0 ?        I<   11:28   0:00 [charger_manager]
+## root         185  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_2]
+## root         186  0.0  0.0      0     0 ?        I<   11:28   0:00 [mpt_poll_0]
+## root         187  0.0  0.0      0     0 ?        I<   11:28   0:00 [mpt/0]
+## root         188  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_2]
+## root         189  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_3]
+## root         190  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_3]
+## root         191  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_4]
+## root         192  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_4]
+## root         193  0.0  0.0      0     0 ?        I<   11:28   0:00 [cryptd]
+## root         194  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_5]
+## root         197  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_5]
+## root         201  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_6]
+## root         205  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_6]
+## root         208  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_7]
+## root         211  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_7]
+## root         212  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_8]
+## root         213  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_8]
+## root         215  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_9]
+## root         219  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_9]
+## root         221  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_10]
+## root         223  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_10]
+## root         226  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_11]
+## root         228  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_11]
+## root         230  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_12]
+## root         232  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_12]
+## root         234  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_13]
+## root         236  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_13]
+## root         238  0.0  0.0      0     0 ?        S    11:28   0:00 [irq/16-vmwgfx]
+## root         240  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_14]
+## root         242  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_14]
+## root         243  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_15]
+## root         245  0.0  0.0      0     0 ?        I<   11:28   0:00 [ttm_swap]
+## root         246  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_15]
+## root         248  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_16]
+## root         250  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_16]
+## root         252  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_17]
+## root         254  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_17]
+## root         255  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_18]
+## root         256  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_18]
+## root         257  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_19]
+## root         258  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_19]
+## root         259  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_20]
+## root         260  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_20]
+## root         261  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_21]
+## root         262  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_21]
+## root         263  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_22]
+## root         264  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_22]
+## root         265  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_23]
+## root         266  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_23]
+## root         267  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_24]
+## root         268  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_24]
+## root         269  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_25]
+## root         270  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_25]
+## root         271  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_26]
+## root         272  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_26]
+## root         273  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_27]
+## root         274  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_27]
+## root         275  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_28]
+## root         276  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_28]
+## root         277  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_29]
+## root         278  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_29]
+## root         279  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_30]
+## root         280  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_30]
+## root         281  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_31]
+## root         282  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_31]
+## root         310  0.0  0.0      0     0 ?        S    11:28   0:00 [scsi_eh_32]
+## root         311  0.0  0.0      0     0 ?        I<   11:28   0:00 [scsi_tmf_32]
+## root         312  0.0  0.0      0     0 ?        I<   11:28   0:00 [kworker/0:1H-kblockd]
+## root         349  0.0  0.0      0     0 ?        I<   11:28   0:00 [raid5wq]
+## root         389  0.0  0.0      0     0 ?        S    11:28   0:00 [jbd2/sda3-8]
+## root         390  0.0  0.0      0     0 ?        I<   11:28   0:00 [ext4-rsv-conver]
+## root         446  0.0  2.7  75400 27288 ?        S<s  11:28   0:01 /lib/systemd/systemd-journald
+## root         478  0.0  0.5  22020  5992 ?        Ss   11:28   0:00 /lib/systemd/systemd-udevd
+## systemd+     480  0.0  0.7  26748  7464 ?        Ss   11:28   0:00 /lib/systemd/systemd-networkd
+## root         621  0.0  0.0      0     0 ?        I<   11:28   0:00 [kaluad]
+## root         622  0.0  0.0      0     0 ?        I<   11:28   0:00 [kmpath_rdacd]
+## root         623  0.0  0.0      0     0 ?        I<   11:28   0:00 [kmpathd]
+## root         624  0.0  0.0      0     0 ?        I<   11:28   0:00 [kmpath_handlerd]
+## root         625  0.0  1.7 345760 17980 ?        SLsl 11:28   0:01 /sbin/multipathd -d -s
+## root         636  0.0  0.0      0     0 ?        S    11:28   0:00 [jbd2/sda2-8]
+## root         638  0.0  0.0      0     0 ?        I<   11:28   0:00 [ext4-rsv-conver]
+## root         640  0.0  0.0      0     0 ?        S<   11:28   0:00 [loop0]
+## root         641  0.0  0.0      0     0 ?        S    11:28   0:00 [jbd2/sda4-8]
+## root         643  0.0  0.0      0     0 ?        I<   11:28   0:00 [ext4-rsv-conver]
+## root         645  0.0  0.0      0     0 ?        S<   11:28   0:00 [loop1]
+## root         647  0.0  0.0      0     0 ?        S<   11:28   0:00 [loop3]
+## root         648  0.0  0.0      0     0 ?        S<   11:28   0:00 [loop4]
+## systemd+     665  0.0  1.1  24052 11932 ?        Ss   11:28   0:00 /lib/systemd/systemd-resolved
+## systemd+     666  0.0  0.5  90168  6020 ?        Ssl  11:28   0:00 /lib/systemd/systemd-timesyncd
+## root         678  0.0  1.0  47532 10160 ?        Ss   11:28   0:00 /usr/bin/VGAuthService
+## root         684  0.0  0.6 162512  6700 ?        Ssl  11:28   0:04 /usr/bin/vmtoolsd
+## root         709  0.0  0.6 235556  6832 ?        Ssl  11:28   0:00 /usr/lib/accountsservice/accounts-daemon
+## message+     710  0.0  0.4   7504  4428 ?        Ss   11:28   0:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+## root         718  0.0  1.6  29072 16944 ?        Ss   11:28   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+## syslog       719  0.0  0.4 224332  4636 ?        Ssl  11:28   0:00 /usr/sbin/rsyslogd -n -iNONE
+## root         723  0.0  0.7  16820  7884 ?        Ss   11:28   0:00 /lib/systemd/systemd-logind
+## root         755  0.0  0.2   6812  2852 ?        Ss   11:28   0:00 /usr/sbin/cron -f
+## daemon       768  0.0  0.2   3792  2236 ?        Ss   11:28   0:00 /usr/sbin/atd -f
+## root         787  0.0  0.6  12168  6848 ?        Ss   11:28   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+## root         788  0.0  0.3   5968  3152 tty1     Ss   11:28   0:00 /bin/login -p --
+## root         796  0.0  1.8 107876 18716 ?        Ssl  11:28   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+## root         809  0.0  0.7 233676  7440 ?        Ssl  11:28   0:00 /usr/lib/policykit-1/polkitd --no-debug
+## root         992  0.0  0.0      0     0 ?        S<   11:28   0:00 [loop6]
+## root        1026  0.0  3.1 645396 31388 ?        Ssl  11:29   0:03 /usr/lib/snapd/snapd
+## root        1231  0.0  0.0      0     0 ?        S<   11:29   0:00 [loop5]
+## dibraerg    1728  0.0  0.9  18556  9728 ?        Ss   11:31   0:00 /lib/systemd/systemd --user
+## dibraerg    1729  0.0  0.4 104304  4204 ?        S    11:31   0:00 (sd-pam)
+## dibraerg    1734  0.0  0.5   9584  5756 tty1     S    11:31   0:00 -bash
+## root        7073  0.0  0.0      0     0 ?        I    12:44   0:00 [kworker/u2:0-events_power_efficient]
+## root        8227  0.0  0.0      0     0 ?        I    13:09   0:00 [kworker/u2:1-events_power_efficient]
+## root        8258  0.0  0.0      0     0 ?        I    13:10   0:00 [kworker/0:2-events]
+## root        8830  0.0  0.0      0     0 ?        I    13:15   0:00 [kworker/0:1-events]
+## root        8933  0.0  4.1 468336 41772 ?        Ssl  13:17   0:00 /usr/libexec/fwupd/fwupd
+## root        8959  0.0  0.1  81276  1012 ?        Ss   13:17   0:00 gpg-agent --homedir /var/lib/fwupd/gnupg --use-standard-socket --daemon
+## dibraerg    9017  0.0  1.0  22808 10808 tty1     S+   13:18   0:00 vim DIBRA_10-15-20_TP3.rmd
+## dibraerg    9403  0.0  0.3   6892  3440 tty1     S+   13:28   0:00 /bin/bash -c echo "require(rmarkdown); render('DIBRA_10-15-20_TP3.rmd')" | R --vanilla
+## dibraerg    9405 35.0  7.8 141424 78920 tty1     S+   13:28   0:00 /usr/lib/R/bin/exec/R --vanilla
+## dibraerg    9423  0.0  0.0   2608   244 tty1     S+   13:28   0:00 sh -c 'bash'  -c 'ps -aux' 2>&1
+## dibraerg    9424  0.0  0.3   9068  3440 tty1     R+   13:28   0:00 ps -aux
+\end{verbatim}
+
+\hypertarget{question-2-1}{%
+\subsubsection{Question 2}\label{question-2-1}}
+
+\hypertarget{question-3}{%
+\subsubsection{Question 3}\label{question-3}}
+
+\hypertarget{service-gettytty2.service}{%
+\subsection{\texorpdfstring{Service
+\texttt{getty@tty2.service}}{Service getty@tty2.service}}\label{service-gettytty2.service}}
+
+\hypertarget{resume-operations}{%
+\subsubsection{Resume operations}\label{resume-operations}}
+
+\hypertarget{mondemon-v1}{%
+\subsection{mondemon v1}\label{mondemon-v1}}
+
+\hypertarget{question-1-3}{%
+\subsubsection{Question 1}\label{question-1-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rm}\NormalTok{ /tmp/mondemon.log}
+\FunctionTok{sudo}\NormalTok{ systemctl enable mondemon}
+\FunctionTok{sudo}\NormalTok{ systemctl start mondemon}
+\FunctionTok{sudo}\NormalTok{ systemctl status mondemon}
+\FunctionTok{sudo}\NormalTok{ systemctl stop mondemon}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## rm: cannot remove '/tmp/mondemon.log': Operation not permitted
+## ● mondemon.service - mondemon
+##      Loaded: loaded (/etc/systemd/system/mondemon.service; enabled; vendor preset: enabled)
+##      Active: active (exited) since Thu 2020-10-15 13:28:07 UTC; 14ms ago
+##     Process: 9455 ExecStart=/bin/bash -c /usr/bin/mondemon start (code=exited, status=0/SUCCESS)
+##    Main PID: 9455 (code=exited, status=0/SUCCESS)
+## 
+## Oct 15 13:28:07 vm-dibraerg-tps systemd[1]: Starting mondemon...
+## Oct 15 13:28:07 vm-dibraerg-tps systemd[1]: Finished mondemon.
+\end{verbatim}
+
+\hypertarget{mondemon-v2}{%
+\subsection{mondemon v2}\label{mondemon-v2}}
+
+\hypertarget{question-1-4}{%
+\subsubsection{Question 1}\label{question-1-4}}
+
+\hypertarget{gestion-des-processus}{%
+\section{Gestion des processus}\label{gestion-des-processus}}
+
+\hypertarget{runlevel}{%
+\subsection{\texorpdfstring{\texttt{runlevel}}{runlevel}}\label{runlevel}}
+
+\hypertarget{analyse-du-repertoire-proc}{%
+\subsection{\texorpdfstring{Analyse du repertoire
+\texttt{/proc/}}{Analyse du repertoire /proc/}}\label{analyse-du-repertoire-proc}}
+
+\hypertarget{question-1-5}{%
+\subsubsection{Question 1}\label{question-1-5}}
+
+\hypertarget{question-2-2}{%
+\subsubsection{Question 2}\label{question-2-2}}
+
+\hypertarget{question-3-1}{%
+\subsubsection{Question 3}\label{question-3-1}}
+
+\hypertarget{top}{%
+\subsection{\texorpdfstring{\texttt{top}}{top}}\label{top}}
+
+\hypertarget{question-1-6}{%
+\subsubsection{Question 1}\label{question-1-6}}
+
+\hypertarget{question-2-3}{%
+\subsubsection{Question 2}\label{question-2-3}}
+
+\hypertarget{signal-sigstop}{%
+\subsection{\texorpdfstring{Signal
+\texttt{SIGSTOP}}{Signal SIGSTOP}}\label{signal-sigstop}}
+
+\hypertarget{bonus}{%
+\section{Bonus}\label{bonus}}
+
+\end{document}

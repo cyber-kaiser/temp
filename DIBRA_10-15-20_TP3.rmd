@@ -57,6 +57,14 @@ ps -aux
 
 ### Question 1
 
+```{bash}
+rm /tmp/mondemon.log
+sudo systemctl enable mondemon
+sudo systemctl start mondemon
+sudo systemctl status mondemon
+sudo systemctl stop mondemon
+```
+
 ## mondemon v2
 
 ### Question 1
